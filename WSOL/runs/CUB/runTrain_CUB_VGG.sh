@@ -1,0 +1,26 @@
+data_root="/mnt/nasv2/MILab/zhulei/nasv1_dmp/datas/dataset"
+CUDA_VISIBLE_DEVICES=3 python main.py --data_root $data_root \
+                --experiment_name "CUB_DASOL_VGG" \
+                --pretrained TRUE \
+                --num_val_sample_per_class 0 \
+                --large_feature_map False \
+                --batch_size 32 \
+                --epochs 50 \
+                --lr 1.7E-05 \
+                --lr_decay_frequency 15 \
+                --weight_decay 5.00E-04 \
+                --override_cache FALSE \
+                --workers 16 \
+                --box_v2_metric True \
+                --iou_threshold_list 30 50 70 \
+                --save_dir 'train_logs' \
+                --seed 15 \
+                --dataset_name CUB \
+                --architecture vgg16 \
+                --wsol_method cam \
+                --uda_method "mmd" \
+                --start_epoch 10 \
+                --beta 0.2 \
+                --univer 0.1 \
+                --check_path "" \
+                --eval_frequency 5

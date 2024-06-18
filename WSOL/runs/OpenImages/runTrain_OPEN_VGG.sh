@@ -1,0 +1,28 @@
+data_root=""
+CUDA_VISIBLE_DEVICES=1 python main.py --dataset_name OpenImages \
+            --data_root $data_root \
+            --architecture vgg16 \
+            --wsol_method cam \
+            --uda_method "mmd" \
+            --experiment_name "OPEN_MMD_VGG" \
+            --pretrained TRUE \
+            --num_val_sample_per_class 0 \
+            --large_feature_map FALSE \
+            --batch_size 32 \
+            --epochs 10 \
+            --lr 1E-4 \
+            --lr_decay_frequency 3 \
+            --weight_decay 5.00E-04 \
+            --override_cache FALSE \
+            --workers 16 \
+            --box_v2_metric True \
+            --iou_threshold_list 30 50 70 \
+            --eval_checkpoint_type last \
+            --has_grid_size 50 \
+            --has_drop_rate 0.66 \
+            --save_dir 'train_logs_open_vgg' \
+            --seed 4 \
+            --check_path "" \
+            --beta 0.2 \
+            --univer 2 \
+            --eval_frequency 1
